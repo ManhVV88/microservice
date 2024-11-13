@@ -1,0 +1,69 @@
+server:
+  port: 8888
+
+app:
+  api-prefix: /api/v1
+
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - name: CustomRateLimiterFilter
+          args:
+            redis-rate-limiter.replenishRate: 5
+            redis-rate-limiter.burstCapacity: 10
+            key-resolver: "#{@userKeyResolver}"
+
+      routes:
+        - id : identity_service
+          uri : http://localhost:8080
+          predicates:
+            - Path=${app.api-prefix}/identity/**
+          filters:
+            - StripPrefix=2
+        - id : profile_service
+          uri : http://localhost:8081
+          predicates:
+            - Path=${app.api-prefix}/profile/**
+          filters:
+            - StripPrefix=2
+        - id: notification_service
+          uri: http://localhost:8082
+          predicates:
+            - Path=${app.api-prefix}/nofitication/**
+          filters:
+            - StripPrefix=2
+        - id: post_service
+          uri: http://localhost:8083
+          predicates:
+            - Path=${app.api-prefix}/post/**
+          filters:
+            - StripPrefix=2
+        - id: wallet_service
+          uri: http://localhost:8084
+          predicates:
+            - Path=${app.api-prefix}/wallet/**
+          filters:
+            - StripPrefix=2
+        - id: paypal_service
+          uri: http://localhost:8085
+          predicates:
+            - Path=${app.api-prefix}/payment-paypal/**
+          filters:
+            - StripPrefix=2
+        - id: payment_service
+          uri: http://localhost:8086
+          predicates:
+            - Path=${app.api-prefix}/payment/**
+          filters:
+            - StripPrefix=2
+  data:
+    redis:
+      host: localhost
+      port: 6379
+logging:
+  level:
+    com.microservice.gateway: DEBUG

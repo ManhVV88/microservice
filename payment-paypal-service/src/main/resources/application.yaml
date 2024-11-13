@@ -1,0 +1,35 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /payment-paypal
+spring:
+  application:
+    name: paypal-service
+  datasource:
+    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/wallet_service}
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    password: ${DBMS_PASSWORD:root}
+    username: ${DBMS_USERNAME:root}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9094
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+app:
+  service:
+    wallet: http://localhost:8084/wallet
+    payment: http://localhost:8086/payment
+
+
+
+jwt:
+  signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"
+
+paypal:
+  clientId: "AXklv2DDSHCDuBMMAwj8rpTxlJkAj8pfs6hgmDfg72-aqjKbqIFa8FWOV6theliK9NjEu3W0kloR3Pxb"
+  clientSecret: "ECIgPRZDNkOd1SqyF3uHIG5pOs6YovwcPbEPMpRR3CHELroihKskcecoqFQg9cLHP36ZEAh3ZQmmHQcT"
+  redirectUrl: "http://localhost:3000/payment-complete"
