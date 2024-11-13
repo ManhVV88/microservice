@@ -22,7 +22,7 @@ app:
   api:
     brevo:
       url: https://api.brevo.com
-      key: "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"
+      key: <brevo-key>
 
 jwt:
   signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"

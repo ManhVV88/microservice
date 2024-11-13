@@ -30,6 +30,6 @@ jwt:
   signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"
 
 paypal:
-  clientId: "AXklv2DDSHCDuBMMAwj8rpTxlJkAj8pfs6hgmDfg72-aqjKbqIFa8FWOV6theliK9NjEu3W0kloR3Pxb"
-  clientSecret: "ECIgPRZDNkOd1SqyF3uHIG5pOs6YovwcPbEPMpRR3CHELroihKskcecoqFQg9cLHP36ZEAh3ZQmmHQcT"
+  clientId: <client-id-sandbox>
+  clientSecret: <client-secret-sandbox>
   redirectUrl: "http://localhost:3000/payment-complete"

@@ -32,7 +32,7 @@ jwt:
 
 google:
   identity:
-    client-id: "164640476439-3b7i1c1hfigvm50i5tcc2ghnb3v54cfa.apps.googleusercontent.com"
-    client-secret: "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"
+    client-id: <client-id>
+    client-secret: <client-secret>
     redirect-uri: "http://localhost:3000/authenticate"
     grand-type: "authorization_code"
