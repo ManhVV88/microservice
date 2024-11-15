@@ -6,22 +6,22 @@ spring:
   application:
     name: payment-service
   datasource:
-    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/wallet_service}
+    url: ${DBMS_CONNECTION_WALLET:jdbc:mysql://localhost:3306/wallet_service}
     driverClassName: "com.mysql.cj.jdbc.Driver"
-    password: ${DBMS_PASSWORD:root}
-    username: ${DBMS_USERNAME:root}
+    password: ${DBMS_PASSWORD_WALLET:root}
+    username: ${DBMS_USERNAME_WALLET:root}
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
   kafka:
-    bootstrap-servers: localhost:9094
+    bootstrap-servers: ${SERVER_PORT_KAFKA:localhost:9094}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 app:
   service:
-    wallet: http://localhost:8084/wallet
+    wallet: ${CLIENT_URL_WALLET:http://localhost:8084/wallet}
 jwt:
   signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"
 

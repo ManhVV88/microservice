@@ -7,14 +7,14 @@ spring:
   application:
     name: profile-service
   neo4j:
-    uri: bolt://localhost:7687
+    uri: ${DBMS_CONNECTION_PROFILE:bolt://localhost:7687}
     authentication:
-      username: neo4j
-      password: 12345678
+      username: ${DBMS_USERNAME_PROFILE:neo4j}
+      password: ${DBMS_PASSWORD_PROFILE:12345678}
 
 app:
   service:
-    identity: http://localhost:8080/identity
+    identity: ${CLIENT_URL_IDENTITY:http://localhost:8080/identity}
 
 jwt:
   signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"

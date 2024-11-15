@@ -5,7 +5,6 @@ import com.microservice.walletservice.configuration.AuthenticationRequestInterce
 import com.microservice.walletservice.dto.response.UserIdResponse;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
-import jakarta.validation.constraints.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.openfeign.FeignClient;
