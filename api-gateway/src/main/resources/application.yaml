@@ -14,8 +14,8 @@ spring:
       default-filters:
         - name: CustomRateLimiterFilter
           args:
-            redis-rate-limiter.replenishRate: 5
-            redis-rate-limiter.burstCapacity: 10
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 1
             key-resolver: "#{@userKeyResolver}"
 
       routes:
